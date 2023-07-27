@@ -1,0 +1,42 @@
+pin_mem: True
+model: slimmable_mbnet_v2_noskipv2_bn_uniform
+num_choice: 14
+
+sync_bn: false
+opt: sgd
+sched: cosine
+epochs: 140
+warmup_lr: 1e-5
+weight_decay: 0.0001
+drop: 0.2
+model_ema: true
+model_ema_decay: 0.997
+lr: 0.04
+batch_size: 64
+optimizer_step: 1 # step optimizer every * training steps to simulate large batch
+drop-path: 0.0
+aa: rand-m9-mstd0.5
+remode: pixel
+reprob: 0.2
+smoothing: 0.1
+mixup: 0.
+color_jitter: 0.06
+amp: True
+validation_batch_size_multiplier: 4
+warmup_epochs: 10
+workers: 10
+pretrained: false
+resume: ''
+#no_resume_opt: true
+#start_epoch: 0
+
+train_mode: all
+test_mode: false
+
+slim_train: true
+ieb: true
+gate_train: false
+reset_bn: true
+# test only
+# resume: ./ckpt/mbnv2_140.pth.tar
+
